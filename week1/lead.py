@@ -1,3 +1,8 @@
+import json
+
+with open("week1/leads.json", "r") as file:
+    leads = json.load(file)
+
 def determine_priority(urgency):
     if urgency == "High":
         return "URGENT"
@@ -58,9 +63,31 @@ lead4 = create_lead(
     "High",
 )
 
+new_leads = [lead, lead2, lead3, lead4]
+
 
 display_lead(lead)
 display_lead(lead2)
 display_lead(lead3)
 display_lead(lead4)
 
+
+def lead_exists(lead):
+    for existing_lead in leads:
+        if existing_lead["phone"] == lead["phone"]:
+            return True
+    return False
+        
+
+for new_lead in new_leads:
+    if lead_exists(new_lead):
+        print("Lead already exists:", new_lead["name"])
+    else:
+        leads.append(new_lead)
+        print("Lead added:", new_lead["name"])
+
+
+with open("week1/leads.json", "w") as file:
+    json.dump(leads, file, indent=4)
+
+print(leads)

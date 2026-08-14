@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Sarah Johnson",
+        "phone": "410-555-7890",
+        "service": "Plumbing",
+        "urgency": "Medium",
+        "priority": "NORMAL",
+        "status": "New"
+    },
+    {
+        "name": "Mike Davis",
+        "phone": "301-555-4567",
+        "service": "Electrical",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Emily Brown",
+        "phone": "240-555-1234",
+        "service": "HVAC",
+        "urgency": "Low",
+        "priority": "LOW",
+        "status": "New"
+    },
+    {
+        "name": "David Wilson",
+        "phone": "443-555-9999",
+        "service": "AC Repair",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    }
+]
