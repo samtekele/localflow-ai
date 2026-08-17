@@ -3,6 +3,7 @@ import json
 with open("week1/leads.json", "r") as file:
     leads = json.load(file)
 
+
 def determine_priority(urgency):
     if urgency == "High":
         return "URGENT"
@@ -28,6 +29,16 @@ def determine_urgency(message):
         score += 3
     if "immediately" in message:
         score += 3
+    if "today" in message:
+        score += 3
+    if "emergency" in message:
+        score += 3
+    if "urgent" in message:
+        score += 3
+    if "no heat" in message:
+        score += 3
+    if "no ac" in message:
+        score += 3
 
     if score >= 3:
         return "High"
@@ -37,11 +48,33 @@ def determine_urgency(message):
         return "Low"
 
 
-     
+def extract_service(message):
+    message = message.lower()
+
+    if "ac" in message or "air conditioning" in message:
+        return "AC Repair"
+    if "plumbing" in message or "pipe" in message or "leak" in message:
+        return "Plumbing"
+    if "electrical" in message or "outlet" in message or "wiring" in message:
+        return "Electrical"
+    if "heater" in message or "furnace" in message:
+        return "HVAC"
+    return "Other"
+
+
+def extract_name(message):
+    message = message.strip()
+
+    if "my name is" in message.lower():
+        name = message.lower().split("my name is", 1)[1]
+        return name.strip().split(".")[0].title()
+
+    return "Unknown"
 
 
 def create_lead(name, phone, service, urgency):
     priority = determine_priority(urgency)
+
     lead = {
         "name": name,
         "phone": phone,
@@ -50,7 +83,9 @@ def create_lead(name, phone, service, urgency):
         "priority": priority,
         "status": "New"
     }
+
     return lead
+
 
 def display_lead(lead):
     print("\nNEW LEAD")
@@ -62,67 +97,23 @@ def display_lead(lead):
     print("Priority:", lead["priority"])
     print("Status:", lead["status"])
 
-lead = create_lead(
-    "Sarah Johnson",
-    "410-555-7890",
-    "Plumbing",
-    "Medium"
-)
-
-
-lead2 = create_lead(
-    "Mike Davis",
-    "301-555-4567",
-    "Electrical",
-    "High"
-)
-
-lead3 = create_lead(
-    "Emily Brown",
-    "240-555-1234",
-    "HVAC",
-    "Low"
-)
-
-lead4 = create_lead(
-    "David Wilson",
-    "443-555-9999",
-    "AC Repair",
-    "High",
-)
-
-new_leads = [lead, lead2, lead3, lead4]
-
-
-display_lead(lead)
-display_lead(lead2)
-display_lead(lead3)
-display_lead(lead4)
-
 
 def lead_exists(lead):
     for existing_lead in leads:
         if existing_lead["phone"] == lead["phone"]:
             return True
+
     return False
-        
-
-for new_lead in new_leads:
-    if lead_exists(new_lead):
-        print("Lead already exists:", new_lead["name"])
-    else:
-        leads.append(new_lead)
-        print("Lead added:", new_lead["name"])
 
 
-
-
-print(leads)
-
-name = input("Enter customer name: ")
-phone = input("Enter phone number: ")
-service = input("Enter service needed: ")
 message = input("Describe your problem: ")
+
+name = extract_name(message)
+
+phone = input("Enter phone number: ")
+
+service = extract_service(message)
+
 urgency = determine_urgency(message)
 
 new_lead = create_lead(
