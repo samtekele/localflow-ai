@@ -12,6 +12,34 @@ def determine_priority(urgency):
         return "LOW"
 
 
+def determine_urgency(message):
+    message = message.lower()
+    score = 0
+
+    if "freezing" in message:
+        score += 2
+    if "children" in message:
+        score += 1
+    if "heater" in message:
+        score += 1
+    if "flooding" in message:
+        score += 3
+    if "electrical" in message:
+        score += 3
+    if "immediately" in message:
+        score += 3
+
+    if score >= 3:
+        return "High"
+    elif score >= 1:
+        return "Medium"
+    else:
+        return "Low"
+
+
+     
+
+
 def create_lead(name, phone, service, urgency):
     priority = determine_priority(urgency)
     lead = {
@@ -87,7 +115,31 @@ for new_lead in new_leads:
         print("Lead added:", new_lead["name"])
 
 
-with open("week1/leads.json", "w") as file:
-    json.dump(leads, file, indent=4)
+
 
 print(leads)
+
+name = input("Enter customer name: ")
+phone = input("Enter phone number: ")
+service = input("Enter service needed: ")
+message = input("Describe your problem: ")
+urgency = determine_urgency(message)
+
+new_lead = create_lead(
+    name,
+    phone,
+    service,
+    urgency
+)
+
+display_lead(new_lead)
+
+if lead_exists(new_lead):
+    print("Lead already exists")
+else:
+    leads.append(new_lead)
+    print("New lead added")
+
+
+with open("week1/leads.json", "w") as file:
+    json.dump(leads, file, indent=4)

@@ -30,5 +30,53 @@
         "urgency": "High",
         "priority": "URGENT",
         "status": "New"
+    },
+    {
+        "name": "James Carter",
+        "phone": "667-555-8888",
+        "service": "Water Heater Repair",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Alex Johnson",
+        "phone": "667-555-1111",
+        "service": "HVAC",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Chris Taylor",
+        "phone": "667-555-2222",
+        "service": "Plumbing",
+        "urgency": "Low",
+        "priority": "LOW",
+        "status": "New"
+    },
+    {
+        "name": "James Bond",
+        "phone": "667-333-2222",
+        "service": "Heater Repair",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Chris Dan",
+        "phone": "667-554-6942",
+        "service": "Electrial Repair",
+        "urgency": "Low",
+        "priority": "LOW",
+        "status": "New"
+    },
+    {
+        "name": "Marcus Williams",
+        "phone": "443-555-7777",
+        "service": "Electrical",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
     }
 ]
