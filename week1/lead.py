@@ -131,6 +131,8 @@ else:
     leads.append(new_lead)
     print("New lead added")
 
+customer_status = print("Do you have a customer code?")
 
 with open("week1/leads.json", "w") as file:
     json.dump(leads, file, indent=4)
+
