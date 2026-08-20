@@ -142,5 +142,29 @@
         "urgency": "Low",
         "priority": "LOW",
         "status": "New"
+    },
+    {
+        "name": "Jordan Lee",
+        "phone": "667-555-1212",
+        "service": "AC Repair",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Taylor Reed",
+        "phone": "667-555-1313",
+        "service": "AC Repair",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Rachel Green",
+        "phone": "667-555-1414",
+        "service": "Electrical",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
     }
 ]

@@ -1,7 +1,10 @@
 import json
+import re
 
-with open("week1/leads.json", "r") as file:
-    leads = json.load(file)
+def load_leads():
+    with open("week1/leads.json", "r") as file:
+        return json.load(file)
+leads = load_leads()
 
 
 def determine_priority(urgency):
@@ -51,7 +54,7 @@ def determine_urgency(message):
 def extract_service(message):
     message = message.lower()
 
-    if "ac" in message or "air conditioning" in message:
+    if re.search(r"\bac\b", message) or "air conditioning" in message:
         return "AC Repair"
     if "plumbing" in message or "pipe" in message or "leak" in message:
         return "Plumbing"
@@ -106,22 +109,27 @@ def lead_exists(lead):
     return False
 
 
+def process_lead(message, phone):
+    name = extract_name(message)
+    service = extract_service(message)
+    urgency = determine_urgency(message)
+
+    lead = create_lead(
+        name,
+        phone,
+        service,
+        urgency
+    )
+
+    return lead
+
+def save_leads():
+    with open("week1/leads.json", "w") as file:
+        json.dump(leads, file, indent=4)
+
 message = input("Describe your problem: ")
-
-name = extract_name(message)
-
 phone = input("Enter phone number: ")
-
-service = extract_service(message)
-
-urgency = determine_urgency(message)
-
-new_lead = create_lead(
-    name,
-    phone,
-    service,
-    urgency
-)
+new_lead = process_lead(message, phone)
 
 display_lead(new_lead)
 
@@ -131,8 +139,5 @@ else:
     leads.append(new_lead)
     print("New lead added")
 
-customer_status = print("Do you have a customer code?")
 
-with open("week1/leads.json", "w") as file:
-    json.dump(leads, file, indent=4)
-
+save_leads()
