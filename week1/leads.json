@@ -166,5 +166,35 @@
         "urgency": "High",
         "priority": "URGENT",
         "status": "New"
+    },
+    {
+        "name": "Daniel Brooks",
+        "phone": "667-555-1515",
+        "service": "Plumbing",
+        "message": "My name is Daniel Brooks. There is water leaking from a pipe in my basement and I need someone immediately",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New"
+    },
+    {
+        "name": "Olivia Grant",
+        "phone": "667-555-1616",
+        "service": "HVAC",
+        "message": "My name is Olivia Grant. My furnace stopped working and the house is freezing. I have children here.",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New",
+        "created_at": "2026-08-21 14:43:52"
+    },
+    {
+        "id": 24,
+        "name": "Ethan Cole",
+        "phone": "667-555-1717",
+        "service": "Electrical",
+        "message": "My name is Ethan Cole. There is an electrical outlet sparking in my bedroom and I need someone immediately.",
+        "urgency": "High",
+        "priority": "URGENT",
+        "status": "New",
+        "created_at": "2026-08-21 14:47:09"
     }
 ]

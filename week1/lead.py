@@ -1,5 +1,7 @@
 import json
 import re
+from datetime import datetime
+
 
 def load_leads():
     with open("week1/leads.json", "r") as file:
@@ -75,16 +77,27 @@ def extract_name(message):
     return "Unknown"
 
 
-def create_lead(name, phone, service, urgency):
+def generate_lead_id():
+    if len(leads) == 0:
+        return 1
+    return len(leads) + 1
+
+
+
+def create_lead(name, phone, service, urgency, message):
     priority = determine_priority(urgency)
+    lead_id = generate_lead_id()
 
     lead = {
+        "id": lead_id,
         "name": name,
         "phone": phone,
         "service": service,
+        "message": message,
         "urgency": urgency,
         "priority": priority,
-        "status": "New"
+        "status": "New",
+        "created_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
     return lead
@@ -93,12 +106,15 @@ def create_lead(name, phone, service, urgency):
 def display_lead(lead):
     print("\nNEW LEAD")
     print("------------------------------")
+    print("Lead ID:", lead["id"])
     print("Name:", lead["name"])
     print("Phone:", lead["phone"])
     print("Service:", lead["service"])
+    print("Message:", lead["message"])
     print("Urgency:", lead["urgency"])
     print("Priority:", lead["priority"])
     print("Status:", lead["status"])
+    print("Created:", lead["created_at"])
 
 
 def lead_exists(lead):
@@ -118,7 +134,9 @@ def process_lead(message, phone):
         name,
         phone,
         service,
-        urgency
+        urgency,
+        message
+
     )
 
     return lead
@@ -126,6 +144,14 @@ def process_lead(message, phone):
 def save_leads():
     with open("week1/leads.json", "w") as file:
         json.dump(leads, file, indent=4)
+
+
+print("\nLOCALFLOW AI")
+print("------------------------------")
+print("Smart lead intake for local service businesses")
+print()
+
+
 
 message = input("Describe your problem: ")
 phone = input("Enter phone number: ")
@@ -141,3 +167,4 @@ else:
 
 
 save_leads()
+
