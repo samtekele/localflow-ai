@@ -5,7 +5,10 @@
         "service": "Plumbing",
         "urgency": "Medium",
         "priority": "NORMAL",
-        "status": "New"
+        "status": "New",
+        "id": 1,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Mike Davis",
@@ -13,7 +16,10 @@
         "service": "Electrical",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 2,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Emily Brown",
@@ -21,7 +27,10 @@
         "service": "HVAC",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "New",
+        "id": 3,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "David Wilson",
@@ -29,7 +38,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 4,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "James Carter",
@@ -37,7 +49,10 @@
         "service": "Water Heater Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 5,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Alex Johnson",
@@ -45,7 +60,10 @@
         "service": "HVAC",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 6,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Chris Taylor",
@@ -53,7 +71,10 @@
         "service": "Plumbing",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "New",
+        "id": 7,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "James Bond",
@@ -61,7 +82,10 @@
         "service": "Heater Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 8,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Chris Dan",
@@ -69,7 +93,10 @@
         "service": "Electrial Repair",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "New",
+        "id": 9,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Marcus Williams",
@@ -77,7 +104,10 @@
         "service": "Electrical",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 10,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Samuel Adams",
@@ -85,7 +115,10 @@
         "service": "AC Repair",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "New",
+        "id": 11,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Marcus Williams",
@@ -93,7 +126,10 @@
         "service": "HVAC",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "New",
+        "id": 12,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Marcus Williams",
@@ -101,7 +137,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 13,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Marcus Williams",
@@ -109,7 +148,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 14,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Marcus Williams",
@@ -117,7 +159,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 15,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Marcus Williams",
@@ -125,7 +170,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 16,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Alex Carter",
@@ -133,7 +181,10 @@
         "service": "Plumbing",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "Contacted",
+        "id": 17,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Unknown",
@@ -141,7 +192,10 @@
         "service": "Other",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New"
+        "status": "New",
+        "id": 18,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Jordan Lee",
@@ -149,7 +203,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 19,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Taylor Reed",
@@ -157,7 +214,10 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 20,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Rachel Green",
@@ -165,7 +225,10 @@
         "service": "Electrical",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 21,
+        "message": "Legacy lead - original message unavailable",
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Daniel Brooks",
@@ -174,7 +237,9 @@
         "message": "My name is Daniel Brooks. There is water leaking from a pipe in my basement and I need someone immediately",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New"
+        "status": "New",
+        "id": 22,
+        "created_at": "Legacy lead - timestamp unavailable"
     },
     {
         "name": "Olivia Grant",
@@ -184,7 +249,8 @@
         "urgency": "High",
         "priority": "URGENT",
         "status": "New",
-        "created_at": "2026-08-21 14:43:52"
+        "created_at": "2026-08-21 14:43:52",
+        "id": 23
     },
     {
         "id": 24,
