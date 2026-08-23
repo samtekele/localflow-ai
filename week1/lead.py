@@ -236,42 +236,41 @@ def display_menu():
     print("4. Update lead status")
     print("5. Exit")
 
+if __name__ == "__main__":
+    print("\nLOCALFLOW AI")
+    print("------------------------------")
+    print("Smart lead intake for local service businesses")
 
-print("\nLOCALFLOW AI")
-print("------------------------------")
-print("Smart lead intake for local service businesses")
+    display_menu()
 
-display_menu()
+    choice = input("Choose an option: ")
 
+    if choice == "1":
+        message = input("Describe your problem: ")
+        phone = input("Enter phone number: ")
 
+        new_lead = process_lead(message, phone)
 
-choice = input("Choose an option: ")
+        display_lead(new_lead)
 
-if choice == "1":
-    message = input("Describe your problem: ")
-    phone = input("Enter phone number: ")
+        if lead_exists(new_lead):
+            print("Lead already exists")
+        else:
+            leads.append(new_lead)
+            save_leads()
+            print("New lead added")
 
-    new_lead = process_lead(message, phone)
+    elif choice == "2":
+        view_all_leads()
 
-    display_lead(new_lead)
+    elif choice == "3":
+        view_urgent_leads()
 
-    if lead_exists(new_lead):
-        print("Lead already exists")
+    elif choice == "4":
+        update_lead_status()
+
+    elif choice == "5":
+        print("Goodbye.")
+
     else:
-        leads.append(new_lead)
-        save_leads()
-        print("New lead added")
-
-elif choice == "2":
-    view_all_leads()
-
-elif choice == "3":
-    view_urgent_leads()
-
-elif choice == "4":
-    update_lead_status()
-elif choice == "5":
-    print("Goodbye.")
-
-else:
-    print("Invalid option.")
+        print("Invalid option.")
