@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Urgent Leads</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Urgent Leads</h1>
+
+    <a href="/dashboard">All Leads</a>
+    |
+    <a href="/">Add New Lead</a>
+
+    <br><br>
+
+    <table border="1" cellpadding="8">
+
+        <tr>
+            <th>Lead ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Service</th>
+            <th>Priority</th>
+            <th>Status</th>
+        </tr>
+
+        {% for lead in leads %}
+
+        {% if lead["priority"] == "URGENT" %}
+
+        <tr class="urgent-row">
+            <td>{{ lead.get("id", "N/A") }}</td>
+            <td>{{ lead["name"] }}</td>
+            <td>{{ lead["phone"] }}</td>
+            <td>{{ lead["service"] }}</td>
+            <td>{{ lead["priority"] }}</td>
+            <td>{{ lead["status"] }}</td>
+        </tr>
+
+        {% endif %}
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

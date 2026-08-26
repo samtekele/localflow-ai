@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>LocalFlow AI Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="stats">
+
+    <div class="stat-card">
+        <h3>Total Leads</h3>
+        <p>{{ total_leads }}</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Urgent Leads</h3>
+        <p>{{ urgent_count }}</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>New Leads</h3>
+        <p>{{ new_count }}</p>
+    </div>
+    <div class="stat-card">
+        <h3>Compeleted</h3>
+        <p>{{ completed_count }}</p>
+    </div>
+
+</div>
+    <a href="/">Add New Lead</a>
+    |
+    <a href="/urgent">View Urgent Leads</a>
+
+    <br><br>
+
+    <table border="1" cellpadding="8">
+
+        <tr>
+            <th>Lead ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Service</th>
+            <th>Urgency</th>
+            <th>Priority</th>
+            <th>Status</th>
+        </tr>
+
+        {% for lead in leads %}
+
+        <tr>
+            <td>{{ lead.get("id", "N/A") }}</td>
+            <td>{{ lead["name"] }}</td>
+            <td>{{ lead["phone"] }}</td>
+            <td>{{ lead["service"] }}</td>
+            <td>{{ lead["urgency"] }}</td>
+            <td>{{ lead["priority"] }}</td>
+            <td>{{ lead["status"] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

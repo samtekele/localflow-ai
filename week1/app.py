@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 from lead import process_lead, lead_exists, leads, save_leads
 
@@ -17,6 +17,7 @@ def home():
         if lead_exists(new_lead):
             return """
             <h1>Lead Already Exists</h1>
+
             <a href="/">Submit Another Lead</a>
             |
             <a href="/dashboard">View Dashboard</a>
@@ -44,109 +45,41 @@ def home():
         <a href="/urgent">View Urgent Leads</a>
         """
 
-    return """
-    <h1>LocalFlow AI</h1>
-
-    <a href="/dashboard">View Dashboard</a>
-    |
-    <a href="/urgent">View Urgent Leads</a>
-
-    <br><br>
-
-    <form method="POST">
-        <label>Customer Message:</label><br>
-        <textarea name="message" rows="6" cols="50"></textarea><br><br>
-
-        <label>Phone Number:</label><br>
-        <input type="text" name="phone"><br><br>
-
-        <button type="submit">Submit Lead</button>
-    </form>
-    """
+    return render_template("index.html")
 
 
 @app.route("/dashboard")
 def dashboard():
-    lead_rows = ""
+    total_leads = len(leads)
 
-    for lead in leads:
-        lead_rows += f"""
-        <tr>
-            <td>{lead.get("id", "N/A")}</td>
-            <td>{lead["name"]}</td>
-            <td>{lead["phone"]}</td>
-            <td>{lead["service"]}</td>
-            <td>{lead["urgency"]}</td>
-            <td>{lead["priority"]}</td>
-            <td>{lead["status"]}</td>
-        </tr>
-        """
-
-    return f"""
-    <h1>LocalFlow AI Dashboard</h1>
-
-    <a href="/">Add New Lead</a>
-    |
-    <a href="/urgent">View Urgent Leads</a>
-
-    <br><br>
-
-    <table border="1" cellpadding="8">
-        <tr>
-            <th>Lead ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Service</th>
-            <th>Urgency</th>
-            <th>Priority</th>
-            <th>Status</th>
-        </tr>
-
-        {lead_rows}
-    </table>
-    """
-
-
-@app.route("/urgent")
-def urgent_leads():
-    lead_rows = ""
-
+    urgent_count = 0
     for lead in leads:
         if lead["priority"] == "URGENT":
-            lead_rows += f"""
-            <tr>
-                <td>{lead.get("id", "N/A")}</td>
-                <td>{lead["name"]}</td>
-                <td>{lead["phone"]}</td>
-                <td>{lead["service"]}</td>
-                <td>{lead["priority"]}</td>
-                <td>{lead["status"]}</td>
-            </tr>
-            """
+            urgent_count += 1
 
-    return f"""
-    <h1>Urgent Leads</h1>
+    new_count = 0
+    for lead in leads:
+        if lead["status"] == "New":
+            new_count += 1
 
-    <a href="/dashboard">All Leads</a>
-    |
-    <a href="/">Add New Lead</a>
+    completed_count = 0
+    for lead in leads:
+        if lead["status"] == "Completed":
+            completed_count += 1
+    
 
-    <br><br>
+    return render_template(
+        "dashboard.html",
+        leads=leads,
+        total_leads=total_leads,
+        urgent_count=urgent_count,
+        new_count=new_count,
+        completed_count=completed_count
+    )
 
-    <table border="1" cellpadding="8">
-        <tr>
-            <th>Lead ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Service</th>
-            <th>Priority</th>
-            <th>Status</th>
-        </tr>
-
-        {lead_rows}
-    </table>
-    """
-
+    
+def urgent_leads():
+    return render_template("urgent.html", leads=leads)
 
 if __name__ == "__main__":
     app.run(debug=True)

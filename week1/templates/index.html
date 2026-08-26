@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>LocalFlow AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>LocalFlow AI</h1>
+
+    <p>Smart lead intake for local service businesses.</p>
+
+    <a href="/dashboard">View Dashboard</a>
+    |
+    <a href="/urgent">View Urgent Leads</a>
+
+    <br><br>
+
+    <h2>Submit a Service Request</h2>
+
+    <form method="POST">
+
+        <label>Customer Message:</label>
+        <br>
+
+        <textarea
+            name="message"
+            rows="6"
+            cols="50"
+            required>
+        </textarea>
+
+        <br><br>
+
+        <label>Phone Number:</label>
+        <br>
+
+        <input
+            type="text"
+            name="phone"
+            required>
+
+        <br><br>
+
+        <button type="submit">
+            Submit Lead
+        </button>
+
+    </form>
+
+</body>
+</html>
