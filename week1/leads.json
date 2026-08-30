@@ -5,7 +5,7 @@
         "service": "Plumbing",
         "urgency": "Medium",
         "priority": "NORMAL",
-        "status": "New",
+        "status": "Completed",
         "id": 1,
         "message": "Legacy lead - original message unavailable",
         "created_at": "Legacy lead - timestamp unavailable"
@@ -16,7 +16,7 @@
         "service": "Electrical",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New",
+        "status": "Completed",
         "id": 2,
         "message": "Legacy lead - original message unavailable",
         "created_at": "Legacy lead - timestamp unavailable"
@@ -27,7 +27,7 @@
         "service": "HVAC",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "New",
+        "status": "Completed",
         "id": 3,
         "message": "Legacy lead - original message unavailable",
         "created_at": "Legacy lead - timestamp unavailable"
@@ -38,7 +38,7 @@
         "service": "AC Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New",
+        "status": "Scheduled",
         "id": 4,
         "message": "Legacy lead - original message unavailable",
         "created_at": "Legacy lead - timestamp unavailable"
@@ -49,7 +49,7 @@
         "service": "Water Heater Repair",
         "urgency": "High",
         "priority": "URGENT",
-        "status": "New",
+        "status": "Contacted",
         "id": 5,
         "message": "Legacy lead - original message unavailable",
         "created_at": "Legacy lead - timestamp unavailable"
@@ -181,7 +181,7 @@
         "service": "Plumbing",
         "urgency": "Low",
         "priority": "LOW",
-        "status": "Contacted",
+        "status": "Scheduled",
         "id": 17,
         "message": "Legacy lead - original message unavailable",
         "created_at": "Legacy lead - timestamp unavailable"

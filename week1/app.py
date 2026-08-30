@@ -1,7 +1,5 @@
-from flask import Flask, request, render_template
-
+from flask import Flask, request, render_template, redirect
 from lead import process_lead, lead_exists, leads, save_leads
-
 
 app = Flask(__name__)
 
@@ -62,11 +60,20 @@ def dashboard():
         if lead["status"] == "New":
             new_count += 1
 
+    contacted_count = 0
+    for lead in leads:
+        if lead["status"] == "Contacted":
+            contacted_count += 1
+
+    scheduled_count = 0
+    for lead in leads:
+        if lead["status"] == "Scheduled":
+            scheduled_count += 1
+
     completed_count = 0
     for lead in leads:
         if lead["status"] == "Completed":
             completed_count += 1
-    
 
     return render_template(
         "dashboard.html",
@@ -74,12 +81,29 @@ def dashboard():
         total_leads=total_leads,
         urgent_count=urgent_count,
         new_count=new_count,
+        contacted_count=contacted_count,
+        scheduled_count=scheduled_count,
         completed_count=completed_count
     )
 
-    
+
+@app.route("/urgent")
 def urgent_leads():
     return render_template("urgent.html", leads=leads)
+
+
+@app.route("/update-status/<int:lead_id>", methods=["POST"])
+def update_status(lead_id):
+    new_status = request.form["status"]
+
+    for lead in leads:
+        if lead.get("id") == lead_id:
+            lead["status"] = new_status
+            save_leads()
+            break
+
+    return redirect("/dashboard")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

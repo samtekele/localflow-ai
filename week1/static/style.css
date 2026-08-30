@@ -82,3 +82,25 @@ th {
     font-weight: bold;
     margin-bottom: 0;
 }
+
+.status {
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.new {
+    background-color: #eeeeee;
+}
+
+.contacted {
+    background-color: #fff3cd;
+}
+
+.scheduled {
+    background-color: #d1ecf1;
+}
+
+.completed {
+    background-color: #d4edda;
+}
