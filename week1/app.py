@@ -48,6 +48,24 @@ def home():
 
 @app.route("/dashboard")
 def dashboard():
+
+    # DAY 13: SEARCH FUNCTIONALITY
+    search = request.args.get("search", "").strip().lower()
+    status_filter = request.args.get("status", "All")
+
+    filtered_leads = []
+
+    for lead in leads:
+        name = lead["name"].lower()
+        phone = str(lead["phone"])
+
+        matches_search = search in name or search in phone
+        matches_status = status_filter == "All" or lead["status"] == status_filter
+
+        if matches_search and matches_status:
+            filtered_leads.append(lead)
+
+    # DASHBOARD ANALYTICS
     total_leads = len(leads)
 
     urgent_count = 0
@@ -77,7 +95,9 @@ def dashboard():
 
     return render_template(
         "dashboard.html",
-        leads=leads,
+        leads=filtered_leads,
+        search=search,
+        status_filter=status_filter,
         total_leads=total_leads,
         urgent_count=urgent_count,
         new_count=new_count,

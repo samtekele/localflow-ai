@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html>
 <head>
     <title>LocalFlow AI Dashboard</title>
@@ -48,6 +48,49 @@
     |
     <a href="/urgent">View Urgent Leads</a>
 
+    <h2>Search & Filter Leads</h2>
+
+    <form method="GET" action="/dashboard">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search by name or phone"
+            value="{{ search }}"
+        >
+
+        <select name="status">
+            <option value="All"
+                {% if status_filter == "All" %}selected{% endif %}>
+                All Statuses
+            </option>
+
+            <option value="New"
+                {% if status_filter == "New" %}selected{% endif %}>
+                New
+            </option>
+
+            <option value="Contacted"
+                {% if status_filter == "Contacted" %}selected{% endif %}>
+                Contacted
+            </option>
+
+            <option value="Scheduled"
+                {% if status_filter == "Scheduled" %}selected{% endif %}>
+                Scheduled
+            </option>
+
+            <option value="Completed"
+                {% if status_filter == "Completed" %}selected{% endif %}>
+                Completed
+            </option>
+        </select>
+
+        <button type="submit">Apply Filters</button>
+        <a href="/dashboard">Clear</a>
+
+    </form>
+
     <br><br>
 
     <table border="1" cellpadding="8">
@@ -72,6 +115,7 @@
             <td>{{ lead["service"] }}</td>
             <td>{{ lead["urgency"] }}</td>
             <td>{{ lead["priority"] }}</td>
+
             <td>
                 <span class="status {{ lead['status']|lower }}">
                     {{ lead["status"] }}
@@ -106,6 +150,7 @@
                     </select>
 
                     <button type="submit">Update</button>
+
                 </form>
             </td>
 
